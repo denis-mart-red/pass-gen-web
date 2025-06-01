@@ -1,0 +1,127 @@
+/* Minimalist & professional UI improvements */
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: #f7f8fa;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 400px;
+  margin: 48px auto;
+  background: #fff;
+  padding: 32px 28px 28px 28px;
+  border-radius: 14px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+
+.generator label {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #444;
+  margin: 0 0 10px 0;
+  gap: 8px;
+}
+
+.generator > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-bottom: 10px;
+}
+
+.generator input[type="number"] {
+  width: 70px;
+  padding: 6px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fafbfc;
+  transition: border 0.2s;
+}
+.generator input[type="number"]:focus {
+  border: 1.5px solid #4f8cff;
+  outline: none;
+}
+
+.generator input[type="checkbox"] {
+  accent-color: #4f8cff;
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+}
+
+button {
+  width: 100%;
+  padding: 12px 0;
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(79,140,255,0.07);
+  transition: background 0.18s, box-shadow 0.18s;
+  margin-top: 8px;
+}
+button:hover, button:focus {
+  background: #2563eb;
+  box-shadow: 0 4px 16px rgba(79,140,255,0.13);
+}
+
+#output {
+  width: 100%;
+  margin-top: 16px;
+  font-size: 1.15em;
+  padding: 10px 12px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 7px;
+  background: #f5f7fa;
+  color: #222;
+  letter-spacing: 0.04em;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  transition: border 0.2s;
+}
+#output:focus {
+  border: 1.5px solid #4f8cff;
+  outline: none;
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 18px 6vw 18px 6vw;
+    max-width: 98vw;
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
+}
+
+.intro {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: -8px;
+  text-align: center;
+}
+
+/* Hide structured data span for better UI */
+span[itemprop="name"] {
+  display: none;
+}
+

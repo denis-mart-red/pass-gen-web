@@ -12,47 +12,105 @@
   <!-- Open Graph (Facebook, LinkedIn) -->
   <meta property="og:title" content="Free Random Password Generator | Secure Online Tool" />
   <meta property="og:description" content="Generate strong, secure passwords for free with our online tool. No tracking, no storage, 100% private." />
-  <meta property="og:image" content="https://yourdomain.com/assets/og-image.png" />
-  <meta property="og:url" content="https://yourdomain.com/" />
+  <meta property="og:image" content="https://denis-mart-red.github.io/pass-gen-web/assets/og-image.png" />
+  <meta property="og:url" content="https://denis-mart-red.github.io/pass-gen-web/" />
   <meta property="og:type" content="website" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Free Random Password Generator" />
   <meta name="twitter:description" content="Quickly generate secure, random passwords online for free." />
-  <meta name="twitter:image" content="https://yourdomain.com/assets/og-image.png" />  
+  <meta name="twitter:image" content="https://denis-mart-red.github.io/pass-gen-web/assets/og-image.png" />
 </head>
 <body>
-  <main class="container" itemscope itemtype="https://schema.org/WebApplication">
-    <section class="intro">
-      <p>
-        Need a strong and secure password? Our <strong>free random password generator</strong> helps you create complex passwords instantly. Choose your preferred length, include symbols, numbers, and letters — all without saving anything on our servers.
-      </p>
-    </section>    
-    <h1>Random Password Generator</h1>
-    <div class="generator">
-      <label>Password Length:
-        <input type="number" id="length" value="12" min="6" max="64" />
-      </label>
-      <div>
-        <label><input type="checkbox" id="uppercase" checked /> Uppercase</label>
-        <label><input type="checkbox" id="lowercase" checked /> Lowercase</label>
-        <label><input type="checkbox" id="numbers" checked /> Numbers</label>
-        <label><input type="checkbox" id="symbols" /> Symbols</label>
+  <div class="container">
+    <header class="header">
+      <div class="logo"></div>
+      <h1>Random Password Generator</h1>
+      <p class="subtitle">Need a strong and secure password? Our <strong>free random password generator</strong> helps you create complex passwords instantly. Choose your preferred length, include symbols, numbers, and letters — all without saving anything on our servers.</p>
+    </header>
+
+    <div class="card" itemscope itemtype="https://schema.org/WebApplication">
+      <div class="form-group">
+        <label class="form-label">Password Length</label>
+        <div class="length-control">
+          <input type="number" id="length" class="length-input" value="12" min="4" max="32">
+          <input type="range" id="lengthSlider" class="length-slider" value="12" min="4" max="32">
+        </div>
       </div>
-      <button onclick="generatePassword()">Generate Password</button>
-      <input type="text" id="output" readonly />
+
+      <div class="form-group">
+        <label class="form-label">Character Types</label>
+        <div class="options-grid">
+          <div class="option-card active" onclick="toggleOption('uppercase', this)">
+            <input type="checkbox" id="uppercase" checked>
+            <div class="option-checkbox"></div>
+            <div class="option-content">
+              <div class="option-label">Uppercase Letters</div>
+              <div class="option-description">A-Z</div>
+            </div>
+          </div>
+          <div class="option-card active" onclick="toggleOption('lowercase', this)">
+            <input type="checkbox" id="lowercase" checked>
+            <div class="option-checkbox"></div>
+            <div class="option-content">
+              <div class="option-label">Lowercase Letters</div>
+              <div class="option-description">a-z</div>
+            </div>
+          </div>
+          <div class="option-card active" onclick="toggleOption('numbers', this)">
+            <input type="checkbox" id="numbers" checked>
+            <div class="option-checkbox"></div>
+            <div class="option-content">
+              <div class="option-label">Numbers</div>
+              <div class="option-description">0-9</div>
+            </div>
+          </div>
+          <div class="option-card" onclick="toggleOption('symbols', this)">
+            <input type="checkbox" id="symbols">
+            <div class="option-checkbox"></div>
+            <div class="option-content">
+              <div class="option-label">Special Characters</div>
+              <div class="option-description">!@#$%^&*</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="strength-meter">
+        <div class="strength-bar">
+          <div class="strength-fill" id="strengthFill" style="width: 60%"></div>
+        </div>
+        <div class="strength-text" id="strengthText">Strong Password</div>
+      </div>
+
+      <button class="generate-btn" onclick="generatePassword()">
+        ✨ Generate Secure Password
+      </button>
+
+      <div class="password-output">
+        <input type="text" id="output" class="password-field" readonly placeholder="Your secure password will appear here...">
+        <button class="copy-btn" onclick="copyPassword()" title="Copy to clipboard">📋</button>
+        <div class="copy-feedback" id="copyFeedback">Copied!</div>
+      </div>
     </div>
-  </main>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="privacy.html" class="footer-link">Privacy Policy</a>
+        <a href="terms.html" class="footer-link">Terms</a>
+      </div>
+      <p class="footer-text">🔒 Your passwords are never stored or transmitted</p>
+    </footer>
+    
+    <!-- Hidden Schema.org structured data -->
+    <span itemprop="name" style="display: none;">Free Password Generator</span>
+    <meta itemprop="applicationCategory" content="Utility" />
+    <meta itemprop="operatingSystem" content="All" />
+    <meta itemprop="browserRequirements" content="Requires JavaScript" />
+    <meta itemprop="url" content="https://denis-mart-red.github.io/pass-gen-web/" />
+  </div>
+
   <script src="script.js"></script>
-  <footer style="text-align:center; margin-top:32px; font-size:0.85rem; color:#666;">
-    <a href="privacy.html">Privacy Policy</a> · 
-    <a href="terms.html">Terms</a>
-  </footer>
-  <span itemprop="name">Free Password Generator</span>
-  <meta itemprop="applicationCategory" content="Utility" />
-  <meta itemprop="operatingSystem" content="All" />
-  <meta itemprop="browserRequirements" content="Requires JavaScript" />
-  <meta itemprop="url" content="https://yourdomain.com/" />
 </body>
 </html>
