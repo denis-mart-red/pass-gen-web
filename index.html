@@ -7,7 +7,6 @@
   <meta name="description" content="Generate strong, secure passwords for free with our online password generator. Easy to use, private, and customizable." />
   <meta name="keywords" content="password generator, strong passwords, random password generator, secure password, online tool, free password generator">
   <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="stylesheet" href="style.css" />
 
   <!-- Open Graph (Facebook, LinkedIn) -->
   <meta property="og:title" content="Free Random Password Generator | Secure Online Tool" />
@@ -20,108 +19,153 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Free Random Password Generator" />
   <meta name="twitter:description" content="Quickly generate secure, random passwords online for free." />
-  <meta name="twitter:image" content="https://denis-mart-red.github.io/pass-gen-web/assets/og-image.png" />
+  <meta property="twitter:image" content="https://denis-mart-red.github.io/pass-gen-web/assets/og-image.png" />
 
-  <!-- Google AdSense Script -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- Google AdSense Script - Uncomment when approved -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script> -->
+
+  <!-- Styles moved to style.css -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <header class="header">
       <div class="logo"></div>
       <h1>Random Password Generator</h1>
-      <p class="subtitle">Need a strong and secure password? Our <strong>free random password generator</strong> helps you create complex passwords instantly. Choose your preferred length, include symbols, numbers, and letters — all without saving anything on our servers.</p>
+      <p class="subtitle">Need a strong and secure password? Our <strong>free random password generator</strong> (based on <strong>AI</strong>) helps you create complex passwords instantly. Choose your preferred length, include symbols, numbers, and letters — all without saving anything on our servers.</p>
     </header>
 
-    <div class="card" itemscope itemtype="https://schema.org/WebApplication">
-      <div class="form-group">
-        <label class="form-label">Password Length</label>
-        <div class="length-control">
-          <input type="number" id="length" class="length-input" value="12" min="4" max="32">
-          <input type="range" id="lengthSlider" class="length-slider" value="12" min="4" max="32">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Character Types</label>
-        <div class="options-grid">
-          <div class="option-card active" onclick="toggleOption('uppercase', this)">
-            <input type="checkbox" id="uppercase" checked>
-            <div class="option-checkbox"></div>
-            <div class="option-content">
-              <div class="option-label">Uppercase Letters</div>
-              <div class="option-description">A-Z</div>
-            </div>
-          </div>
-          <div class="option-card active" onclick="toggleOption('lowercase', this)">
-            <input type="checkbox" id="lowercase" checked>
-            <div class="option-checkbox"></div>
-            <div class="option-content">
-              <div class="option-label">Lowercase Letters</div>
-              <div class="option-description">a-z</div>
-            </div>
-          </div>
-          <div class="option-card active" onclick="toggleOption('numbers', this)">
-            <input type="checkbox" id="numbers" checked>
-            <div class="option-checkbox"></div>
-            <div class="option-content">
-              <div class="option-label">Numbers</div>
-              <div class="option-description">0-9</div>
-            </div>
-          </div>
-          <div class="option-card" onclick="toggleOption('symbols', this)">
-            <input type="checkbox" id="symbols">
-            <div class="option-checkbox"></div>
-            <div class="option-content">
-              <div class="option-label">Special Characters</div>
-              <div class="option-description">!@#$%^&*</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="strength-meter">
-        <div class="strength-bar">
-          <div class="strength-fill" id="strengthFill" style="width: 60%"></div>
-        </div>
-        <div class="strength-text" id="strengthText">Strong Password</div>
-      </div>
-
-      <button class="generate-btn" onclick="generatePassword()">
-        ✨ Generate Secure Password
-      </button>
-      <div class="rounded-2xl shadow p-4 bg-white dark:bg-zinc-800 my-6">
-        <ins class="adsbygoogle"
-            style="display:inline-block;width:300px;height:250px"
-            data-ad-client="ca-pub-3940256099942544"
-            data-ad-slot="6300978111"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <div class="password-output">
-        <input type="text" id="output" class="password-field" readonly placeholder="Your secure password will appear here...">
-        <button class="copy-btn" onclick="copyPassword()" title="Copy to clipboard">📋</button>
-        <div class="copy-feedback" id="copyFeedback">Copied!</div>
-      </div>
+    <!-- Mobile Ad - Only visible on mobile -->
+    <div class="ad-placeholder mobile-ad">
+      <div class="ad-placeholder-text">Advertisement</div>
+      <div class="ad-placeholder-subtext">320x50 Mobile Banner</div>
     </div>
-
-    <footer class="footer">
-      <div class="footer-links">
-        <a href="privacy.html" class="footer-link">Privacy Policy</a>
-        <a href="terms.html" class="footer-link">Terms</a>
-      </div>
-      <p class="footer-text">🔒 Your passwords are never stored or transmitted</p>
-    </footer>
-    
-    <!-- Hidden Schema.org structured data -->
-    <span itemprop="name" style="display: none;">Free Password Generator</span>
-    <meta itemprop="applicationCategory" content="Utility" />
-    <meta itemprop="operatingSystem" content="All" />
-    <meta itemprop="browserRequirements" content="Requires JavaScript" />
-    <meta itemprop="url" content="https://denis-mart-red.github.io/pass-gen-web/" />
   </div>
 
+  <div class="main-layout">
+    <div class="container">
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="card" itemscope itemtype="https://schema.org/WebApplication">
+          <div class="form-group">
+            <label class="form-label">Password Length</label>
+            <div class="length-control">
+              <input type="number" id="length" class="length-input" value="12" min="4" max="32">
+              <input type="range" id="lengthSlider" class="length-slider" value="12" min="4" max="32">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Character Types</label>
+            <div class="options-grid">
+              <div class="option-card active" onclick="toggleOption('uppercase', this)">
+                <input type="checkbox" id="uppercase" checked>
+                <div class="option-checkbox"></div>
+                <div class="option-content">
+                  <div class="option-label">Uppercase Letters</div>
+                  <div class="option-description">A-Z</div>
+                </div>
+              </div>
+              <div class="option-card active" onclick="toggleOption('lowercase', this)">
+                <input type="checkbox" id="lowercase" checked>
+                <div class="option-checkbox"></div>
+                <div class="option-content">
+                  <div class="option-label">Lowercase Letters</div>
+                  <div class="option-description">a-z</div>
+                </div>
+              </div>
+              <div class="option-card active" onclick="toggleOption('numbers', this)">
+                <input type="checkbox" id="numbers" checked>
+                <div class="option-checkbox"></div>
+                <div class="option-content">
+                  <div class="option-label">Numbers</div>
+                  <div class="option-description">0-9</div>
+                </div>
+              </div>
+              <div class="option-card" onclick="toggleOption('symbols', this)">
+                <input type="checkbox" id="symbols">
+                <div class="option-checkbox"></div>
+                <div class="option-content">
+                  <div class="option-label">Special Characters</div>
+                  <div class="option-description">!@#$%^&*</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="strength-meter">
+            <div class="strength-bar">
+              <div class="strength-fill" id="strengthFill" style="width: 60%"></div>
+            </div>
+            <div class="strength-text" id="strengthText">Strong Password</div>
+          </div>
+
+          <button class="generate-btn" onclick="generatePassword()">
+            ✨ Generate Secure Password with AI
+          </button>
+
+          <div class="password-output">
+            <input type="text" id="output" class="password-field" readonly placeholder="Your secure password will appear here...">
+            <button class="copy-btn" onclick="copyPassword()" title="Copy to clipboard">📋</button>
+            <div class="copy-feedback" id="copyFeedback">Copied!</div>
+          </div>
+        </div>
+      </div>
+      <!-- Sidebar with Ads - Only visible on desktop -->
+      <aside class="sidebar-ads">
+        <!-- First Sidebar Ad -->
+        <div class="ad-placeholder sidebar-ad-1">
+          <div class="ad-placeholder-text">Advertisement</div>
+          <div class="ad-placeholder-subtext">300x250 Medium Rectangle</div>
+          
+          <!-- REAL AD CODE - Uncomment when Google Ads is approved -->
+          <!--
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+               data-ad-slot="YOUR_AD_SLOT_ID_1"
+               data-ad-format="rectangle"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+          -->
+        </div>
+
+        <!-- Second Sidebar Ad -->
+        <div class="ad-placeholder sidebar-ad-2">
+          <div class="ad-placeholder-text">Advertisement</div>
+          <div class="ad-placeholder-subtext">300x600 Half Page</div>
+          
+          <!-- REAL AD CODE - Uncomment when Google Ads is approved -->
+          <!--
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+               data-ad-slot="YOUR_AD_SLOT_ID_2"
+               data-ad-format="rectangle"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+          -->
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="privacy.html" class="footer-link">Privacy Policy</a>
+      <a href="terms.html" class="footer-link">Terms</a>
+    </div>
+    <p class="footer-text">🔒 Your passwords are never stored or transmitted</p>
+  </footer>
+  
+  <!-- Hidden Schema.org structured data -->
+  <span itemprop="name" style="display: none;">Free Password Generator</span>
+  <meta itemprop="applicationCategory" content="Utility" />
+  <meta itemprop="operatingSystem" content="All" />
+  <meta itemprop="browserRequirements" content="Requires JavaScript" />
+  <meta itemprop="url" content="https://denis-mart-red.github.io/pass-gen-web/" />
   <script src="script.js"></script>
 </body>
 </html>

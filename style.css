@@ -50,10 +50,21 @@ body::before {
 }
 
 .container {
-  max-width: 480px;
+  max-width: 900px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .container {
+    max-width: 900px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+  }
 }
 
 .header {
@@ -485,5 +496,99 @@ h1 {
   
   .options-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Layout with sidebar for ads */
+.main-layout {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .main-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    width: 100%;
+  }
+}
+
+.main-content {
+  flex: 1 1 0%;
+  min-width: 0;
+  max-width: 700px;
+}
+
+.sidebar-ads {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+/* Ad Placeholder Styles */
+.ad-placeholder {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 2px dashed #dee2e6;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.ad-placeholder:hover {
+  border-color: #adb5bd;
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ad-placeholder::before {
+  content: '📢';
+  font-size: 2rem;
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+
+.ad-placeholder-text {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.ad-placeholder-subtext {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* Sidebar Ad sizes */
+.sidebar-ad-1 {
+  width: 300px;
+  height: 250px;
+}
+
+.sidebar-ad-2 {
+  width: 300px;
+  height: 600px;
+}
+
+/* Mobile fallback - banner ad */
+.mobile-ad {
+  display: block;
+  max-width: 320px;
+  height: 50px;
+  margin: 20px auto;
+}
+
+@media (min-width: 1024px) {
+  .mobile-ad {
+    display: none;
   }
 }
