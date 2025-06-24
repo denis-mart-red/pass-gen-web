@@ -519,13 +519,13 @@ h1 {
   max-width: 700px;
 }
 
-.sidebar-ads {
+.sidebar-promos {
   width: 320px;
   flex-shrink: 0;
 }
 
-/* Ad Placeholder Styles */
-.ad-placeholder {
+/* Promo Placeholder Styles */
+.promo-placeholder {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   border: 2px dashed #dee2e6;
   border-radius: 12px;
@@ -544,43 +544,43 @@ h1 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.ad-placeholder:hover {
+.promo-placeholder:hover {
   border-color: #adb5bd;
   background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
   transform: translateY(-2px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
-.ad-placeholder::before {
+.promo-placeholder::before {
   content: '📢';
   font-size: 2rem;
   margin-bottom: 10px;
   opacity: 0.7;
 }
 
-.ad-placeholder-text {
+.promo-placeholder-text {
   font-weight: 500;
   margin-bottom: 5px;
 }
 
-.ad-placeholder-subtext {
+.promo-placeholder-subtext {
   font-size: 0.8rem;
   opacity: 0.7;
 }
 
-/* Sidebar Ad sizes */
-.sidebar-ad-1 {
+/* Sidebar Promo sizes */
+.sidebar-promo-1 {
   width: 300px;
   height: 250px;
 }
 
-.sidebar-ad-2 {
+.sidebar-promo-2 {
   width: 300px;
   height: 600px;
 }
 
-/* Mobile fallback - banner ad */
-.mobile-ad {
+/* Mobile fallback - banner promo */
+.mobile-promo {
   display: block;
   max-width: 320px;
   height: 50px;
@@ -588,7 +588,7 @@ h1 {
 }
 
 @media (min-width: 1024px) {
-  .mobile-ad {
+  .mobile-promo {
     display: none;
   }
 }
