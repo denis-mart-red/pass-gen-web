@@ -35,9 +35,6 @@
       <h1>Random Password Generator</h1>
       <div class="centered-content">
         <p class="subtitle">Need a strong and secure password? Our <strong>free random password generator</strong> (based on <strong>AI</strong>) helps you create complex passwords instantly. Choose your preferred length, include symbols, numbers, and letters — all without saving anything on our servers.</p>
-        <a href="why-secure-passwords-matter.html" class="cta-button special-cta">
-          <span style="font-size:1.3em;">🛡️</span> Why Secure Passwords Matter
-        </a>
         <div class="card" itemscope itemtype="https://schema.org/WebApplication">
           <div class="form-group">
             <label class="form-label">Password Length</label>
@@ -105,13 +102,129 @@
       </div>
     </header>
 
+    <div class="centered-content">
+      <!-- BEGIN: Password Security & Help Center Content (moved from why-secure-passwords-matter.html) -->
+      <section class="card" style="margin:40px auto 0 auto;max-width:700px;">
+        <h2><span class="icon">🛡️</span>Why Password Security Matters</h2>
+        <p>In today's digital landscape, passwords serve as the first line of defense against cyber threats. With over 4.5 billion internet users worldwide and cybercrime damages projected to reach $10.5 trillion annually by 2025, understanding password security isn't just important—it's essential.</p>
+        <p>Every day, millions of accounts are compromised due to weak passwords. A single breach can lead to identity theft, financial loss, and privacy violations that can take years to recover from. The good news? Most of these incidents are preventable with proper password practices.</p>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">81%</div>
+            <div class="stat-label">of breaches involve weak passwords</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">2.9B</div>
+            <div class="stat-label">accounts breached every year</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">12+</div>
+            <div class="stat-label">characters recommended</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">1M+</div>
+            <div class="stat-label">passwords tested per second</div>
+          </div>
+        </div>
+      </section>
+      <section class="card" style="margin:32px auto 0 auto;max-width:700px;">
+        <h2><span class="icon">🔐</span>How Our Password Generator Works</h2>
+        <p><strong>Powered by AI:</strong> Our advanced password generator leverages artificial intelligence to enhance both security and user experience. AI helps analyze password strength, suggest improvements, and ensure that generated passwords are not only random but also resilient against modern attack patterns.</p>
+        <p>Our tool uses cryptographically secure random number generation to create truly unpredictable passwords. Unlike simple random generators, our AI-powered tool ensures that every character has an equal probability of being selected, making your passwords resistant to both dictionary attacks and brute force attempts.</p>
+        <h3><span class="icon">⚙️</span>Key Features</h3>
+        <ul>
+          <li><strong>AI-Driven Strength Analysis:</strong> Real-time feedback and suggestions for stronger passwords</li>
+          <li><strong>Cryptographic Security:</strong> Uses Web Crypto API for true randomness</li>
+          <li><strong>Customizable Length:</strong> Generate passwords from 8 to 128 characters</li>
+          <li><strong>Character Options:</strong> Include uppercase, lowercase, numbers, and symbols</li>
+          <li><strong>No Storage:</strong> Passwords are generated locally and never stored</li>
+          <li><strong>One-Click Copy:</strong> Easy copying with visual confirmation</li>
+        </ul>
+        <h3><span class="icon">📊</span>Strength Calculation</h3>
+        <p>Our AI-enhanced strength meter evaluates your password based on:</p>
+        <ul>
+          <li>Length (longer is exponentially stronger)</li>
+          <li>Character variety (uppercase, lowercase, numbers, symbols)</li>
+          <li>Entropy calculation (measures unpredictability)</li>
+          <li>Common pattern detection using AI algorithms</li>
+        </ul>
+      </section>
+      <section class="card" style="margin:32px auto 0 auto;max-width:700px;">
+        <h2><span class="icon">✅</span>Password Security Best Practices</h2>
+        <div class="security-tips">
+          <div class="tip-card">
+            <h4><span class="icon">📏</span>Length Matters</h4>
+            <p>Use at least 12 characters. Each additional character exponentially increases security. A 12-character password is 4,000 times stronger than an 8-character one.</p>
+          </div>
+          <div class="tip-card">
+            <h4><span class="icon">🔀</span>Mix Character Types</h4>
+            <p>Combine uppercase letters, lowercase letters, numbers, and symbols. This increases the pool of possible characters from 26 to 94.</p>
+          </div>
+          <div class="tip-card">
+            <h4><span class="icon">🚫</span>Avoid Personal Info</h4>
+            <p>Never use names, birthdays, addresses, or other personal information. Hackers often have access to this data through social media.</p>
+          </div>
+          <div class="tip-card">
+            <h4><span class="icon">🔄</span>Unique for Each Account</h4>
+            <p>Never reuse passwords across different accounts. If one account is breached, others remain secure.</p>
+          </div>
+          <div class="tip-card">
+            <h4><span class="icon">🔐</span>Use a Password Manager</h4>
+            <p>Password managers can generate, store, and fill strong passwords automatically. They're essential for managing multiple accounts.</p>
+          </div>
+          <div class="tip-card">
+            <h4><span class="icon">📱</span>Enable Two-Factor Authentication</h4>
+            <p>Add an extra layer of security with 2FA. Even if your password is compromised, your account remains protected.</p>
+          </div>
+        </div>
+      </section>
+      <section class="card" style="margin:32px auto 0 auto;max-width:700px;">
+        <h2><span class="icon">🔍</span>Password Examples: Weak vs Strong</h2>
+        <div class="password-examples">
+          <div class="password-example weak">
+            <h4><span class="icon">❌</span>Weak Password</h4>
+            <div class="password-display">password123</div>
+            <p><strong>Why it's weak:</strong> Common word, predictable pattern, only lowercase and numbers</p>
+          </div>
+          <div class="password-example strong">
+            <h4><span class="icon">✅</span>Strong Password</h4>
+            <div class="password-display">9vT!xQ2#bLw8mK$7</div>
+            <p><strong>Why it's strong:</strong> 16 characters, mixed case, numbers, symbols, no patterns</p>
+          </div>
+        </div>
+      </section>
+      <section class="card faq-section" style="margin:32px auto 40px auto;max-width:700px;">
+        <h2><span class="icon">❓</span>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Are my passwords stored or sent anywhere?</button>
+          <div class="faq-answer"><p>No. All passwords are generated locally in your browser and never leave your device.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">How does the generator work?</button>
+          <div class="faq-answer"><p>It uses the Web Crypto API to generate random characters based on your selected options. No server processing is involved.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Why is a long password better?</button>
+          <div class="faq-answer"><p>Longer passwords are exponentially harder to crack. Each extra character adds millions of possible combinations.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Is this tool really free?</button>
+          <div class="faq-answer"><p>Yes! This password generator is 100% free and always will be.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">What if I forget my password?</button>
+          <div class="faq-answer"><p>Use a password manager to securely store and retrieve your passwords. Never write them down in plain text.</p></div>
+        </div>
+      </section>
+      <!-- END: Password Security & Help Center Content -->
+    </div>
+
     <footer class="footer">
       <div class="footer-links">
         <a href="privacy.html" class="footer-link">Privacy Policy</a>
         <a href="terms.html" class="footer-link">Terms</a>
         <a href="about.html" class="footer-link">About</a>
         <a href="contact.html" class="footer-link">Contact</a>
-        <a href="why-secure-passwords-matter.html" class="footer-link">Why Secure Passwords Matter</a>
       </div>
       <p class="footer-text">🔒 Your passwords are never stored or transmitted</p>
       <div class="footer-about cool-footer-about">
@@ -126,5 +239,12 @@
   <meta itemprop="browserRequirements" content="Requires JavaScript" />
   <meta itemprop="url" content="https://passwordgeneratorai.com/" />
   <script src="script.js" defer></script>
+  <script>
+function toggleFaq(btn) {
+  btn.classList.toggle('active');
+  const answer = btn.nextElementSibling;
+  answer.classList.toggle('active');
+}
+</script>
 </body>
 </html>
