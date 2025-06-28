@@ -3,232 +3,197 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Random Password Generator | Secure Online Tool</title>
-  <meta name="description" content="Generate strong, secure passwords for free with our online password generator. Easy to use, private, and customizable." />
-  <meta name="keywords" content="password generator, strong passwords, random password generator, secure password, online tool, free password generator">
+  <title>Password Generator & Math | All-in-One Security Hub</title>
+  <meta name="description" content="Generate strong passwords and learn the math behind password security. Free, private, and educational." />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
-
-  <!-- Open Graph (Facebook, LinkedIn) -->
-  <meta property="og:title" content="Free Random Password Generator | Secure Online Tool" />
-  <meta property="og:description" content="Generate strong, secure passwords for free with our online tool. No tracking, no storage, 100% private." />
-  <meta property="og:image" content="https://passwordgeneratorai.com/assets/og-image.png" />
-  <meta property="og:url" content="https://passwordgeneratorai.com/" />
-  <meta property="og:type" content="website" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Free Random Password Generator" />
-  <meta name="twitter:description" content="Quickly generate secure, random passwords online for free." />
-  <meta property="twitter:image" content="https://passwordgeneratorai.com/assets/og-image.png" />
-
-  <!-- Google AdSense Script -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7313670565652423"
-     crossorigin="anonymous"></script>
-
-  <!-- Styles moved to style.css -->
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .math-section { max-width: 800px; margin: 40px auto; background: var(--bg-card); border-radius: 24px; box-shadow: var(--shadow-xl); padding: 32px; }
+    .math-section h2, .math-section h3 { color: var(--primary); }
+    .math-section h2 {
+      margin-top: 48px;
+      margin-bottom: 18px;
+      color: var(--primary);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .math-section h2:first-child {
+      margin-top: 0;
+    }
+    .math-section h3 {
+      margin-top: 32px;
+      margin-bottom: 12px;
+      color: var(--primary);
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+    .formula { background: #f3f4f6; border-radius: 8px; padding: 10px 16px; font-family: 'Menlo', monospace; font-size: 1.1em; margin: 16px 0; display: inline-block; }
+    .example-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+    .example-table th, .example-table td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; }
+    .example-table th { background: #f8fafc; }
+    .fun-fact { background: #e0e7ff; color: #3730a3; border-radius: 8px; padding: 12px 18px; margin: 18px 0; font-weight: 500; }
+    .faq-math { margin-top: 40px; }
+    .faq-math h3 { margin-bottom: 12px; }
+    .faq-math .faq-item { margin-bottom: 18px; }
+    .faq-math .faq-q { font-weight: bold; color: var(--primary); }
+    .faq-math .faq-a { margin-left: 10px; }
+  </style>
+  <!-- MathJax for LaTeX rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 </head>
 <body>
-  <div class="main-centered-container">
   <div class="main-nav">
     <nav class="nav-bar">
       <a href="index.html" class="nav-link">Home</a>
-      <a href="password-math.html" class="nav-link">Password Math</a>
+      <a href="why.html" class="nav-link">Why is it important?</a>
       <a href="privacy.html" class="nav-link">Privacy</a>
       <a href="terms.html" class="nav-link">Terms</a>
       <a href="about.html" class="nav-link">About</a>
       <a href="contact.html" class="nav-link">Contact</a>
     </nav>
   </div>
-
+  <div class="main-centered-container">
     <header class="header">
       <div class="logo"></div>
-      <h1>Random Password Generator</h1>
-      <div class="centered-content">
-        <p class="subtitle">Generate strong, secure passwords instantly with our free online tool. Choose your preferred length, include symbols, numbers, and letters — all generated locally and never saved on our servers.</p>
-        <div class="card" itemscope itemtype="https://schema.org/WebApplication">
-          <div class="form-group">
-            <label class="form-label">Password Length</label>
-            <div class="length-control">
-              <input type="number" id="length" class="length-input" value="12" min="4" max="32">
-              <input type="range" id="lengthSlider" class="length-slider" value="12" min="4" max="32">
-            </div>
+      <h1>Password Generator & The Math Behind Security</h1>
+      <p class="subtitle">Generate strong passwords instantly and learn the science that keeps your accounts safe—all in one place.</p>
+    </header>
+    <div class="main-content-aligned">
+      <div class="card generator-card" itemscope itemtype="https://schema.org/WebApplication">
+        <div class="form-group">
+          <label class="form-label">Password Length</label>
+          <div class="length-control">
+            <input type="number" id="length" class="length-input" value="12" min="4" max="32">
+            <input type="range" id="lengthSlider" class="length-slider" value="12" min="4" max="32">
           </div>
-
-          <div class="form-group">
-            <label class="form-label">Character Types</label>
-            <div class="options-grid">
-              <div class="option-card active" onclick="toggleOption('uppercase', this)">
-                <input type="checkbox" id="uppercase" checked>
-                <div class="option-checkbox"></div>
-                <div class="option-content">
-                  <div class="option-label">Uppercase Letters</div>
-                  <div class="option-description">A-Z</div>
-                </div>
-              </div>
-              <div class="option-card active" onclick="toggleOption('lowercase', this)">
-                <input type="checkbox" id="lowercase" checked>
-                <div class="option-checkbox"></div>
-                <div class="option-content">
-                  <div class="option-label">Lowercase Letters</div>
-                  <div class="option-description">a-z</div>
-                </div>
-              </div>
-              <div class="option-card active" onclick="toggleOption('numbers', this)">
-                <input type="checkbox" id="numbers" checked>
-                <div class="option-checkbox"></div>
-                <div class="option-content">
-                  <div class="option-label">Numbers</div>
-                  <div class="option-description">0-9</div>
-                </div>
-              </div>
-              <div class="option-card" onclick="toggleOption('symbols', this)">
-                <input type="checkbox" id="symbols">
-                <div class="option-checkbox"></div>
-                <div class="option-content">
-                  <div class="option-label">Special Characters</div>
-                  <div class="option-description">!@#$%^&*</div>
-                </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Character Types</label>
+          <div class="options-grid">
+            <div class="option-card active" onclick="toggleOption('uppercase', this)">
+              <input type="checkbox" id="uppercase" checked>
+              <div class="option-checkbox"></div>
+              <div class="option-content">
+                <div class="option-label">Uppercase Letters</div>
+                <div class="option-description">A-Z</div>
               </div>
             </div>
-          </div>
-
-          <div class="strength-meter">
-            <div class="strength-bar">
-              <div class="strength-fill" id="strengthFill" style="width: 60%"></div>
+            <div class="option-card active" onclick="toggleOption('lowercase', this)">
+              <input type="checkbox" id="lowercase" checked>
+              <div class="option-checkbox"></div>
+              <div class="option-content">
+                <div class="option-label">Lowercase Letters</div>
+                <div class="option-description">a-z</div>
+              </div>
             </div>
-            <div class="strength-text" id="strengthText">Strong Password</div>
+            <div class="option-card active" onclick="toggleOption('numbers', this)">
+              <input type="checkbox" id="numbers" checked>
+              <div class="option-checkbox"></div>
+              <div class="option-content">
+                <div class="option-label">Numbers</div>
+                <div class="option-description">0-9</div>
+              </div>
+            </div>
+            <div class="option-card" onclick="toggleOption('symbols', this)">
+              <input type="checkbox" id="symbols">
+              <div class="option-checkbox"></div>
+              <div class="option-content">
+                <div class="option-label">Special Characters</div>
+                <div class="option-description">!@#$%^&*</div>
+              </div>
+            </div>
           </div>
-
-          <button class="generate-btn" onclick="generatePassword()">
-            ✨ Generate Secure Password
-          </button>
-
-          <div class="password-output">
-            <input type="text" id="output" class="password-field" readonly placeholder="Your secure password will appear here...">
-            <button class="copy-btn" onclick="copyPassword()" title="Copy to clipboard">📋</button>
-            <div class="copy-feedback" id="copyFeedback">Copied!</div>
+        </div>
+        <div class="strength-meter">
+          <div class="strength-bar">
+            <div class="strength-fill" id="strengthFill" style="width: 60%"></div>
           </div>
+          <div class="strength-text" id="strengthText">Strong Password</div>
+        </div>
+        <button class="generate-btn" onclick="generatePassword()">
+          ✨ Generate Secure Password
+        </button>
+        <div class="password-output">
+          <input type="text" id="output" class="password-field" readonly placeholder="Your secure password will appear here...">
+          <button class="copy-btn" onclick="copyPassword()" title="Copy to clipboard">📋</button>
+          <div class="copy-feedback" id="copyFeedback">Copied!</div>
         </div>
       </div>
-    </header>
-
-    <div class="centered-content">
-      <!-- BEGIN: Password Security & Help Center Content (moved from why-secure-passwords-matter.html) -->
-      <section class="card" style="margin:40px auto 0 auto;max-width:700px;">
-        <h2><span class="icon">🛡️</span>Why Password Security Matters</h2>
-        <p>In today's digital landscape, passwords serve as the first line of defense against cyber threats. With over 4.5 billion internet users worldwide and cybercrime damages projected to reach $10.5 trillion annually by 2025, understanding password security isn't just important—it's essential.</p>
-        <p>Every day, millions of accounts are compromised due to weak passwords. A single breach can lead to identity theft, financial loss, and privacy violations that can take years to recover from. The good news? Most of these incidents are preventable with proper password practices.</p>
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-number">81%</div>
-            <div class="stat-label">of breaches involve weak passwords</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">2.9B</div>
-            <div class="stat-label">accounts breached every year</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">12+</div>
-            <div class="stat-label">characters recommended</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">1M+</div>
-            <div class="stat-label">passwords tested per second</div>
-          </div>
-        </div>
-      </section>
-      <section class="card" style="margin:32px auto 0 auto;max-width:700px;">
-        <h2><span class="icon">🔐</span>How Our Password Generator Works</h2>
-        <p><strong>Cryptographically Secure:</strong> Our password generator uses cryptographically secure random number generation to create truly unpredictable passwords. Every character has an equal probability of being selected, making your passwords resistant to both dictionary attacks and brute force attempts.</p>
-        <h3><span class="icon">⚙️</span>Key Features</h3>
+      <div class="math-section">
+        <h2><span class="icon">🧮</span>How Are Random Passwords Generated?</h2>
+        <p>Strong password security starts with true randomness. If a password can be predicted, it can be cracked. That's why our generator uses the <strong>Web Crypto API</strong>—a cryptographically secure random number generator built into all modern browsers and based on open standards.</p>
         <ul>
-          <li><strong>Strength Analysis:</strong> Real-time feedback and suggestions for stronger passwords</li>
-          <li><strong>Cryptographic Security:</strong> Uses Web Crypto API for true randomness</li>
-          <li><strong>Customizable Length:</strong> Generate passwords from 8 to 128 characters</li>
-          <li><strong>Character Options:</strong> Include uppercase, lowercase, numbers, and symbols</li>
-          <li><strong>No Storage:</strong> Passwords are generated locally and never stored</li>
-          <li><strong>One-Click Copy:</strong> Easy copying with visual confirmation</li>
+          <li><strong>Step 1:</strong> You choose the password length and which character types to include (letters, numbers, symbols).</li>
+          <li><strong>Step 2:</strong> For each character, the Web Crypto API generates a random number, like rolling a perfectly fair dice with as many sides as there are possible characters.</li>
+          <li><strong>Step 3:</strong> Each random number is mapped to a character, and all are joined together to form your password.</li>
         </ul>
-        <h3><span class="icon">📊</span>Strength Calculation</h3>
-        <p>Our strength meter evaluates your password based on:</p>
+        <div class="fun-fact">Why not use Math.random()? Because it's not secure enough for passwords. The Web Crypto API is designed for cryptography and is tested by security experts worldwide.</div>
+        <p><strong>Key Point:</strong> Your password is generated instantly, right in your browser. It is never sent over the internet or stored anywhere—only you see it. This approach is safer than server-side generation, as it eliminates the risk of interception or logging.</p>
+        <p><em>The Web Crypto API is supported by all major browsers and is the industry standard for secure random number generation on the web.</em></p>
+        <h3>Technical Explanation: Mathematical Model of Password Generation</h3>
+        <p><strong>Let’s formalize the process mathematically, as in a technical mathematics or computer science course:</strong></p>
         <ul>
-          <li>Length (longer is exponentially stronger)</li>
-          <li>Character variety (uppercase, lowercase, numbers, symbols)</li>
-          <li>Entropy calculation (measures unpredictability)</li>
-          <li>Common pattern detection</li>
+          <li><strong>Alphabet:</strong> Let \( \mathcal{A} \) be the set of possible characters (e.g., 72 symbols: A-Z, a-z, 0-9, special characters).</li>
+          <li><strong>Password Length:</strong> Let \( L \) be the desired password length.</li>
+          <li><strong>Random Variables:</strong> For each position \( i \in \{1, 2, \ldots, L\} \), define a discrete random variable \( X_i \) that takes values in \( \mathcal{A} \).</li>
+          <li><strong>Uniform Distribution:</strong> Each \( X_i \) is sampled independently and uniformly: \( P(X_i = a) = 1/|\mathcal{A}| \) for all \( a \in \mathcal{A} \).</li>
+          <li><strong>Independence:</strong> The random variables \( X_1, X_2, \ldots, X_L \) are independent: knowing one gives no information about the others.</li>
+          <li><strong>Password as a Random Vector:</strong> The generated password is the vector \( (X_1, X_2, \ldots, X_L) \).</li>
         </ul>
-      </section>
-      <section class="card" style="margin:32px auto 0 auto;max-width:700px;">
-        <h2><span class="icon">✅</span>Password Security Best Practices</h2>
-        <div class="security-tips">
-          <div class="tip-card">
-            <h4><span class="icon">📏</span>Length Matters</h4>
-            <p>Use at least 12 characters. Each additional character exponentially increases security. A 12-character password is 4,000 times stronger than an 8-character one.</p>
-          </div>
-          <div class="tip-card">
-            <h4><span class="icon">🔀</span>Mix Character Types</h4>
-            <p>Combine uppercase letters, lowercase letters, numbers, and symbols. This increases the pool of possible characters from 26 to 94.</p>
-          </div>
-          <div class="tip-card">
-            <h4><span class="icon">🚫</span>Avoid Personal Info</h4>
-            <p>Never use names, birthdays, addresses, or other personal information. Hackers often have access to this data through social media.</p>
-          </div>
-          <div class="tip-card">
-            <h4><span class="icon">🔄</span>Unique for Each Account</h4>
-            <p>Never reuse passwords across different accounts. If one account is breached, others remain secure.</p>
-          </div>
-          <div class="tip-card">
-            <h4><span class="icon">🔐</span>Use a Password Manager</h4>
-            <p>Password managers can generate, store, and fill strong passwords automatically. They're essential for managing multiple accounts.</p>
-          </div>
-          <div class="tip-card">
-            <h4><span class="icon">📱</span>Enable Two-Factor Authentication</h4>
-            <p>Add an extra layer of security with 2FA. Even if your password is compromised, your account remains protected.</p>
-          </div>
+        <p><strong>Space of Possible Passwords:</strong> The total number of possible passwords is \( |\mathcal{A}|^L \). Each password is equally likely.</p>
+        <p><strong>Entropy Calculation:</strong> The Shannon entropy of the password is \( H = L \cdot \log_2(|\mathcal{A}|) \) bits. This quantifies unpredictability and is a direct measure of password strength.</p>
+        <p><strong>Cryptographic Security:</strong> The Web Crypto API uses a cryptographically secure pseudorandom number generator (CSPRNG), designed to be unpredictable even to attackers with significant computational resources. This is essential: if the random numbers were predictable, the effective password space would be much smaller in practice.</p>
+        <p><strong>Summary:</strong> In mathematical terms, secure password generation is modeled as sampling a random vector of length \( L \) from the uniform distribution over \( \mathcal{A}^L \), using a CSPRNG to ensure true unpredictability.</p>
+        <div class="fun-fact">In probability theory, this is equivalent to taking \( L \) independent samples from a finite set, with replacement, under the uniform distribution.</div>
+      </div>
+      <div class="math-section">
+        <h2><span class="icon">💪</span>What Makes a Password Strong?</h2>
+        <p>It's all about <strong>combinations</strong> and <strong>randomness</strong>. The more possible combinations, the harder it is for hackers to guess your password—even with supercomputers!</p>
+        <div class="fun-fact">Fun Fact: If your password is just "cat", there are only 17,576 possible combinations. But if it's 12 random letters, numbers, and symbols, there are more combinations than atoms in the universe!</div>
+        <h3>How Do We Calculate Combinations?</h3>
+        <p>Imagine you have a password of length <strong>L</strong>, and you can use <strong>N</strong> different characters (like A-Z, a-z, 0-9, and symbols). The total number of possible passwords is:</p>
+        <div class="formula">Total Combinations = N<sup>L</sup></div>
+        <p>For example, if you use 26 lowercase letters and your password is 4 characters long:</p>
+        <div class="formula">26<sup>4</sup> = 456,976</div>
+        <p>But if you use uppercase, lowercase, numbers, and 10 symbols (72 characters total) and your password is 8 characters:</p>
+        <div class="formula">72<sup>8</sup> = 722,204,136,308,736</div>
+        <h3>Table: How Combinations Grow</h3>
+        <table class="example-table">
+          <tr><th>Password Length</th><th>Only Letters (A-Z, a-z)</th><th>Letters + Numbers</th><th>Letters + Numbers + Symbols</th></tr>
+          <tr><td>6</td><td>52<sup>6</sup> = 19.7B</td><td>62<sup>6</sup> = 56.8B</td><td>72<sup>6</sup> = 139.3B</td></tr>
+          <tr><td>8</td><td>52<sup>8</sup> = 53.5T</td><td>62<sup>8</sup> = 218T</td><td>72<sup>8</sup> = 722T</td></tr>
+          <tr><td>12</td><td>52<sup>12</sup> = 3.2e+20</td><td>62<sup>12</sup> = 3.2e+21</td><td>72<sup>12</sup> = 1.9e+22</td></tr>
+        </table>
+      </div>
+      <div class="math-section">
+        <h2><span class="icon">📊</span>What is Entropy?</h2>
+        <p><strong>Entropy</strong> is a fancy word for "unpredictability". In passwords, it's measured in <strong>bits</strong>. More bits = more security.</p>
+        <p>The formula is:</p>
+        <div class="formula">Entropy = L × log<sub>2</sub>(N)</div>
+        <p>For example, an 8-character password using 72 possible characters:</p>
+        <div class="formula">Entropy = 8 × log<sub>2</sub>(72) ≈ 8 × 6.17 = 49.4 bits</div>
+        <div class="fun-fact">A password with 60+ bits of entropy is considered very strong!</div>
+      </div>
+      <div class="math-section">
+        <h2><span class="icon">⏳</span>How Long Would It Take to Crack?</h2>
+        <p>Let's say a hacker can try 1 billion (1,000,000,000) passwords per second. For a password with 49 bits of entropy (like above):</p>
+        <div class="formula">Total Time = Total Combinations / Attempts per Second</div>
+        <div class="formula">722,204,136,308,736 / 1,000,000,000 = 722,204 seconds ≈ 8.4 days</div>
+        <p>But if your password is 12 characters with symbols (entropy ≈ 74 bits):</p>
+        <div class="formula">3,110,400,000,000,000,000,000 / 1,000,000,000 = 3,110,400,000,000 seconds ≈ 98,600 years!</div>
+      </div>
+      <div class="math-section">
+        <h2><span class="icon">❓</span>FAQ: Password Math</h2>
+        <div class="faq-math">
+          <div class="faq-item"><span class="faq-q">Q: Is a longer password always better?</span><span class="faq-a">A: Yes! Each extra character makes it much harder to guess.</span></div>
+          <div class="faq-item"><span class="faq-q">Q: Are symbols really important?</span><span class="faq-a">A: Yes, they increase the number of possible combinations a lot.</span></div>
+          <div class="faq-item"><span class="faq-q">Q: Can a computer guess my password instantly?</span><span class="faq-a">A: Only if it's very short or common. Long, random passwords are safe for years—even for supercomputers!</span></div>
+          <div class="faq-item"><span class="faq-q">Q: What is a "brute force" attack?</span><span class="faq-a">A: It's when a hacker tries every possible combination until they find yours. That's why more combinations = more safety.</span></div>
+          <div class="faq-item"><span class="faq-q">Q: What is "entropy" in simple words?</span><span class="faq-a">A: It's a way to measure how unpredictable (random) your password is. More entropy = more security.</span></div>
         </div>
-      </section>
-      <section class="card" style="margin:32px auto 0 auto;max-width:700px;">
-        <h2><span class="icon">🔍</span>Password Examples: Weak vs Strong</h2>
-        <div class="password-examples">
-          <div class="password-example weak">
-            <h4><span class="icon">❌</span>Weak Password</h4>
-            <div class="password-display">password123</div>
-            <p><strong>Why it's weak:</strong> Common word, predictable pattern, only lowercase and numbers</p>
-          </div>
-          <div class="password-example strong">
-            <h4><span class="icon">✅</span>Strong Password</h4>
-            <div class="password-display">9vT!xQ2#bLw8mK$7</div>
-            <p><strong>Why it's strong:</strong> 16 characters, mixed case, numbers, symbols, no patterns</p>
-          </div>
-        </div>
-      </section>
-      <section class="card faq-section" style="margin:32px auto 40px auto;max-width:700px;">
-        <h2><span class="icon">❓</span>Frequently Asked Questions</h2>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">Are my passwords stored or sent anywhere?</button>
-          <div class="faq-answer"><p>No. All passwords are generated locally in your browser and never leave your device.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">How does the generator work?</button>
-          <div class="faq-answer"><p>It uses the Web Crypto API to generate random characters based on your selected options. No server processing is involved.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">Why is a long password better?</button>
-          <div class="faq-answer"><p>Longer passwords are exponentially harder to crack. Each extra character adds millions of possible combinations.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">Is this tool really free?</button>
-          <div class="faq-answer"><p>Yes! This password generator is 100% free and always will be.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">What if I forget my password?</button>
-          <div class="faq-answer"><p>Use a password manager to securely store and retrieve your passwords. Never write them down in plain text.</p></div>
-        </div>
-      </section>
-      <!-- END: Password Security & Help Center Content -->
+      </div>
     </div>
-
     <footer class="footer">
       <div class="footer-links">
         <a href="privacy.html" class="footer-link">Privacy Policy</a>
@@ -237,24 +202,8 @@
         <a href="contact.html" class="footer-link">Contact</a>
       </div>
       <p class="footer-text">🔒 Your passwords are never stored or transmitted</p>
-      <div class="footer-about cool-footer-about">
-        <p><strong>About this site:</strong> Password Generator is a free online tool to help you generate strong, secure passwords instantly.<br>No data is stored or tracked.<br>For questions or suggestions, please use our <a href="contact.html">contact form</a>.</p>
-      </div>
     </footer>
   </div>
-  <!-- Hidden Schema.org structured data -->
-  <meta itemprop="name" content="Free Password Generator" />
-  <meta itemprop="applicationCategory" content="Utility" />
-  <meta itemprop="operatingSystem" content="All" />
-  <meta itemprop="browserRequirements" content="Requires JavaScript" />
-  <meta itemprop="url" content="https://passwordgeneratorai.com/" />
   <script src="script.js" defer></script>
-  <script>
-function toggleFaq(btn) {
-  btn.classList.toggle('active');
-  const answer = btn.nextElementSibling;
-  answer.classList.toggle('active');
-}
-</script>
 </body>
 </html>
