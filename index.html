@@ -30,11 +30,22 @@
 </head>
 <body>
   <div class="main-centered-container">
+  <div class="main-nav">
+    <nav class="nav-bar">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="password-math.html" class="nav-link">Password Math</a>
+      <a href="privacy.html" class="nav-link">Privacy</a>
+      <a href="terms.html" class="nav-link">Terms</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+  </div>
+
     <header class="header">
       <div class="logo"></div>
       <h1>Random Password Generator</h1>
       <div class="centered-content">
-        <p class="subtitle">Need a strong and secure password? Our <strong>free random password generator</strong> (based on <strong>AI</strong>) helps you create complex passwords instantly. Choose your preferred length, include symbols, numbers, and letters — all without saving anything on our servers.</p>
+        <p class="subtitle">Generate strong, secure passwords instantly with our free online tool. Choose your preferred length, include symbols, numbers, and letters — all generated locally and never saved on our servers.</p>
         <div class="card" itemscope itemtype="https://schema.org/WebApplication">
           <div class="form-group">
             <label class="form-label">Password Length</label>
@@ -90,7 +101,7 @@
           </div>
 
           <button class="generate-btn" onclick="generatePassword()">
-            ✨ Generate Secure Password with AI
+            ✨ Generate Secure Password
           </button>
 
           <div class="password-output">
@@ -129,11 +140,10 @@
       </section>
       <section class="card" style="margin:32px auto 0 auto;max-width:700px;">
         <h2><span class="icon">🔐</span>How Our Password Generator Works</h2>
-        <p><strong>Powered by AI:</strong> Our advanced password generator leverages artificial intelligence to enhance both security and user experience. AI helps analyze password strength, suggest improvements, and ensure that generated passwords are not only random but also resilient against modern attack patterns.</p>
-        <p>Our tool uses cryptographically secure random number generation to create truly unpredictable passwords. Unlike simple random generators, our AI-powered tool ensures that every character has an equal probability of being selected, making your passwords resistant to both dictionary attacks and brute force attempts.</p>
+        <p><strong>Cryptographically Secure:</strong> Our password generator uses cryptographically secure random number generation to create truly unpredictable passwords. Every character has an equal probability of being selected, making your passwords resistant to both dictionary attacks and brute force attempts.</p>
         <h3><span class="icon">⚙️</span>Key Features</h3>
         <ul>
-          <li><strong>AI-Driven Strength Analysis:</strong> Real-time feedback and suggestions for stronger passwords</li>
+          <li><strong>Strength Analysis:</strong> Real-time feedback and suggestions for stronger passwords</li>
           <li><strong>Cryptographic Security:</strong> Uses Web Crypto API for true randomness</li>
           <li><strong>Customizable Length:</strong> Generate passwords from 8 to 128 characters</li>
           <li><strong>Character Options:</strong> Include uppercase, lowercase, numbers, and symbols</li>
@@ -141,12 +151,12 @@
           <li><strong>One-Click Copy:</strong> Easy copying with visual confirmation</li>
         </ul>
         <h3><span class="icon">📊</span>Strength Calculation</h3>
-        <p>Our AI-enhanced strength meter evaluates your password based on:</p>
+        <p>Our strength meter evaluates your password based on:</p>
         <ul>
           <li>Length (longer is exponentially stronger)</li>
           <li>Character variety (uppercase, lowercase, numbers, symbols)</li>
           <li>Entropy calculation (measures unpredictability)</li>
-          <li>Common pattern detection using AI algorithms</li>
+          <li>Common pattern detection</li>
         </ul>
       </section>
       <section class="card" style="margin:32px auto 0 auto;max-width:700px;">
@@ -228,7 +238,7 @@
       </div>
       <p class="footer-text">🔒 Your passwords are never stored or transmitted</p>
       <div class="footer-about cool-footer-about">
-        <p><strong>About this site:</strong> Password Generator AI is a free online tool to help you generate strong, secure passwords instantly.<br>No data is stored or tracked.<br>For questions or suggestions, please use our <a href="contact.html">contact form</a>.</p>
+        <p><strong>About this site:</strong> Password Generator is a free online tool to help you generate strong, secure passwords instantly.<br>No data is stored or tracked.<br>For questions or suggestions, please use our <a href="contact.html">contact form</a>.</p>
       </div>
     </footer>
   </div>

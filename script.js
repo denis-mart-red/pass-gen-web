@@ -57,6 +57,7 @@ function updateStrengthMeter() {
   }
 }
 
+
 function generatePassword() {
   const length = parseInt(lengthInput.value);
   const includeUpper = document.getElementById('uppercase').checked;
